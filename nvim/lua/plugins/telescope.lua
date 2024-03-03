@@ -25,5 +25,11 @@ return {
 
         -- Search help docs.
 		vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
+
+        -- Search variables / functions / types, in current buffer
+        vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, {})
+
+        -- Search variables / functions / types, in your entire workspace
+        vim.keymap.set("n", "<leader>ws", builtin.lsp_dynamic_workspace_symbols, {})
 	end,
 }
