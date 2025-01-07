@@ -52,6 +52,12 @@ And then add your user to the `docker` group:
     sudo usermod -aG docker $USER
 
 ### Install fzf
+
+There's several ways of installing `fzf`.  If you don't care about running the latest, you can just install using `sudo apt install fzf`.  I like to install from the git repo so I can run the install script and have it add the required lines to my zshrc (may not be required once you have your .zshrc in the dotfiles repo):
+
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+
 ### Install neovim
 
 * Go to the latest releases page here: https://github.com/neovim/neovim/releases
