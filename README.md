@@ -58,6 +58,12 @@ There's several ways of installing `fzf`.  If you don't care about running the l
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 
+### Install jq
+
+Not really a requirement, but definitely a nice-to-have when working with APIs.  May already be installed on some distros.
+
+    sudo apt install jq
+
 ### Install neovim
 
 * Go to the latest releases page here: https://github.com/neovim/neovim/releases
