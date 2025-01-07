@@ -84,3 +84,18 @@ Not really a requirement, but definitely a nice-to-have when working with APIs. 
 * Start `tmux` and install plugins <prefix> + I (`Ctrl + s` `Shift + i`)
 
 ### Install pyenv
+
+You can install it via git, but it's easier to just use the installer:
+
+    curl -fsSL https://pyenv.run | bash
+
+Don't forget to add the following to your zshrc if it's not there already:
+
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init - bash)"
+    eval "$(pyenv virtualenv-init -)"
+
+Before trying to install a specific version, make sure you have the appropriate python build dependencies:
+
+    sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
