@@ -7,37 +7,50 @@ Setting up an Ubuntu 24.04 system from a fresh state.  I used these steps to set
 
 ### Update
 
-    `sudo apt update && sudo apt upgrade`
+    sudo apt update && sudo apt upgrade
 
 ### Install build essentials
 
 These will be needed later on since treesitter and some other utilities require a C compiler.  Might as well get them installed now.
 
-    `sudo apt install build-essential`
+    sudo apt install build-essential
 
 ### Install CURL
 
-    `sudo apt install curl`
+    sudo apt install curl
 
 ### Install zsh
 
 If `zsh --version` results in command not found, you'll have to install zsh first:
 
-    `sudo apt install zsh`
+    sudo apt install zsh
 
 Make `zsh` your default shell:
 
-    `chsh -s $(which zsh)`
+    chsh -s $(which zsh)
 
 You'll probably have to logout and log back in for it to take effect.  Opening a terminal afterwards will prompt you to configure zsh, you can `q` out of this for now since we're going to install and configure things with `ohmyposh` next.
 
 ### Install ohmyposh
 
-    `curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin`
+    curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 
 TODO: Create a config json file in this repo and pass it in to oh-my-posh init with `--config`
 
 ### Install docker
+
+There's a couple different ways to install docker.  If you need the latest and greatest, refer to the instructions on the official docker site, which has you setup appropriate repository.  If you just need docker and don't really care if it's the latest, you can use the following:
+
+    sudo apt install docker.io
+
+Once installed, you'll probably get complaints about permissions.  You need to create the `docker` group if it isn't already created:
+
+    sudo groupadd docker
+
+And then add your user to the `docker` group:
+
+    sudo usermod -aG docker $USER
+
 ### Install fzf
 ### Install neovim
 
