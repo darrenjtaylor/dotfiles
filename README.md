@@ -3,13 +3,13 @@ Perpetual work in progress
 
 ## TODO
 
-[X] Add setup steps in README to start from a fresh install
-[X] Migrate away from ohmyzsh since it's no longer receiving updates
-[ ] Organize `.zshrc` and add it to the repo with aliases / functions
-[ ] Clean up neovim config (remove unused / broken plugins and keymaps)
-[ ] Add python debugging support in neovim (nvim-dap and nvim-dap-ui)
-[ ] Add stow to the workflow to manage symlinks for dotfiles and configs
-[ ] Automate setup into shell scripts or ansible playbooks
+- [X] Add setup steps in README to start from a fresh install
+- [X] Migrate away from ohmyzsh since it's no longer receiving updates
+- [ ] Organize `.zshrc` and add it to the repo with aliases / functions
+- [ ] Clean up neovim config (remove unused / broken plugins and keymaps)
+- [ ] Add python debugging support in neovim (nvim-dap and nvim-dap-ui)
+- [ ] Add stow to the workflow to manage symlinks for dotfiles and configs
+- [ ] Automate setup into shell scripts or ansible playbooks
 
 ## Setup
 
