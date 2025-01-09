@@ -1,6 +1,16 @@
 # dotfiles
 Perpetual work in progress
 
+## TODO
+
+[X] Add setup steps in README to start from a fresh install
+[X] Migrate away from ohmyzsh since it's no longer receiving updates
+[ ] Organize `.zshrc` and add it to the repo with aliases / functions
+[ ] Clean up neovim config (remove unused / broken plugins and keymaps)
+[ ] Add python debugging support in neovim (nvim-dap and nvim-dap-ui)
+[ ] Add stow to the workflow to manage symlinks for dotfiles and configs
+[ ] Automate setup into shell scripts or ansible playbooks
+
 ## Setup
 
 Setting up an Ubuntu 24.04 system from a fresh state.  I used these steps to setup Kubuntu 24.04 on my Framework laptop.  Eventually I will automate these steps into a script or ansible playbook, but I typically don't start a fresh installation very often so it's not a priority.
@@ -33,9 +43,17 @@ You'll probably have to logout and log back in for it to take effect.  Opening a
 
 ### Install ohmyposh
 
+Use the install script:
+
     curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 
-TODO: Create a config json file in this repo and pass it in to oh-my-posh init with `--config`
+Symlink custom config from this repo:
+
+    sudo ln -s $HOME/projects/dotfiles/.config/ohmyposh.json $HOME/.config/ohmyposh.json
+
+Add initialization to `.zshrc`:
+
+    eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh.json)"
 
 ### Install docker
 
@@ -63,6 +81,10 @@ There's several ways of installing `fzf`.  If you don't care about running the l
 Not really a requirement, but definitely a nice-to-have when working with APIs.  May already be installed on some distros.
 
     sudo apt install jq
+
+### Install tree (I like to see the overall folder structure for projects sometimes...)
+
+    sudo apt install tree
 
 ### Install neovim
 
@@ -98,7 +120,7 @@ Don't forget to add the following to your zshrc if it's not there already:
 
 Before trying to install a specific version, make sure you have the appropriate python build dependencies:
 
-    sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+    sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 ### Install poetry
 
