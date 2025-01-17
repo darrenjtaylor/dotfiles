@@ -9,8 +9,8 @@ return {
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.ruff,
-                require("none-ls.diagnostics.ruff"),
+				-- null_ls.builtins.formatting.black,
+    --             require("none-ls.diagnostics.black"),
 				require("none-ls.diagnostics.eslint_d"),
 			},
 		})

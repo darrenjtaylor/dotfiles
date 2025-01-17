@@ -10,7 +10,7 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "ts_ls",
-                "ruff",
+                "pyright",
                 "marksman"
             }
         })
@@ -24,7 +24,7 @@ return {
         lspconfig.ts_ls.setup({
             capabilities = capabilities
         })
-        lspconfig.ruff.setup({
+        lspconfig.pyright.setup({
             capabilities = capabilities
         })
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
