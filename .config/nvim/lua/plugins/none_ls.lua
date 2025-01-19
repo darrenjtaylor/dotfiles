@@ -10,6 +10,8 @@ return {
 				"ruff",
 				"prettier",
 				"shfmt",
+				"stylua",
+				"eslint_d",
 			},
 			automatic_installation = true,
 		})
