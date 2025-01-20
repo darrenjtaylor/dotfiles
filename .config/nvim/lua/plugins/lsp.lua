@@ -31,7 +31,7 @@ return {
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "v" })
 				map("<leader>td", function()
 					vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-				end, { silent = true, noremap = true, desc = "[T]oggle [D]iagnostics" })
+				end, "[T]oggle [D]iagnostics")
 
 				-- Autocommands to highlight words under the cursor
 				local client = vim.lsp.get_client_by_id(ev.data.client_id)
