@@ -15,21 +15,15 @@ return {
 		})
 		local builtin = require("telescope.builtin")
 
-        -- Search within files and buffers
-		vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
-		vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-		vim.keymap.set("n", "<leader>ps", function()
+		-- Search within files and buffers
+		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
+		vim.keymap.set("n", "<leader>st", builtin.git_files, { desc = "[S]earch [T]racked" })
+		vim.keymap.set("n", "<leader>sf", function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })
-		end)
-		vim.keymap.set("n", "<leader>pb", builtin.buffers, {})
+		end, { desc = "[S]earch [F]uzzy" })
+		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch [B]uffers" })
 
-        -- Search help docs.
-		vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
-
-        -- Search variables / functions / types, in current buffer
-        vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, {})
-
-        -- Search variables / functions / types, in your entire workspace
-        vim.keymap.set("n", "<leader>ws", builtin.lsp_dynamic_workspace_symbols, {})
+		-- Search help docs.
+		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 	end,
 }
