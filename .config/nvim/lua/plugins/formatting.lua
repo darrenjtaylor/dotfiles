@@ -15,6 +15,7 @@ return {
 				css = { "prettierd", "prettier", stop_after_first = true },
 				json = { "prettierd", "prettier", stop_after_first = true },
 				yaml = { "prettierd", "prettier", stop_after_first = true },
+				sql = { "sqlfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = "fallback",
