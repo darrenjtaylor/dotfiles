@@ -7,7 +7,7 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { "ruff_fix", "ruff_format" },
+				python = { "black" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 				typescript = { "prettierd", "prettier", stop_after_first = true },
 				-- markdown = { "prettierd", "prettier", stop_after_first = true },
@@ -23,6 +23,11 @@ return {
 				timeout_ms = 500,
 			},
 			notify_on_error = true,
+			formatters = {
+				black = {
+					prepend_args = { "--fast" },
+				},
+			},
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>f", function()
