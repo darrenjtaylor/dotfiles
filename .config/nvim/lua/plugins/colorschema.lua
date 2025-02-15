@@ -10,7 +10,7 @@ return {
 		end,
 	},
 	{
-		"sho-87/kanagawa-paper.nvim",
+		"thesimonho/kanagawa-paper.nvim",
 		lazy = false,
 		name = "kanagawa-paper",
 		priority = 1000,
