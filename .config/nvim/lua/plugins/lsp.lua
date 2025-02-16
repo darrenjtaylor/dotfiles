@@ -98,8 +98,23 @@ return {
 			-- Python setup
 			pyright = {},
 
+			-- Vue3
+			volar = {},
+
 			-- Typescript setup
-			ts_ls = {},
+			ts_ls = {
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							location = vim.fn.stdpath("data")
+								.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+							languages = { "vue" },
+						},
+					},
+				},
+			},
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})
