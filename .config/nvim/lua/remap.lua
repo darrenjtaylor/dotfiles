@@ -6,8 +6,7 @@ vim.keymap.set("n", "Q", "<nop>", { desc = "Disable Q" })
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make file executable" })
 -- Maybe redundant given the formatting that happens on save.
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format current buffer" })
--- TODO: Try out oil.nvim or some other file tree browswer
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Open File Browser" })
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Open File Browser" })
 
 -- Movement and scrolling
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join next line with current line" })
