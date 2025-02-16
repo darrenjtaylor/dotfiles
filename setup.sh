@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 
+log() {
+    if [[ $dry == "1" ]]; then
+        echo "[DRY] $@"
+    else
+        echo "$@"
+    fi
+}
+
+execute() {
+    log "execute $@"
+    if [[ $dry == "1" ]]; then
+        return
+    fi
+    "$@"
+}
+
 # Grab the directory this script is running from
 currdir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
@@ -24,14 +40,9 @@ scripts=$(find ./install -maxdepth 1 -mindepth 1 -executable -type f)
 # Run our install scripts unless they don't match the provided filter
 for script in $scripts; do
     if echo "$script" | grep -qv "$filter"; then
-        echo "skipping $script"
+        log "skipping $script"
         continue
     fi
 
-    if [[ $dry == "1" ]]; then
-        echo "[DRY] Installing $script"
-        continue
-    fi
-
-    ./$script
+    execute ./$script
 done
