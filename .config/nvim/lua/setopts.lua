@@ -37,3 +37,13 @@ end)
 -- Highlights and searching
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+-- Configure diagnostics
+vim.diagnostic.config({
+	virtual_text = false,
+	float = {
+		header = false,
+		border = "rounded",
+		focusable = true,
+	},
+})

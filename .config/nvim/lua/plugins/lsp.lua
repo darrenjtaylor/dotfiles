@@ -30,7 +30,7 @@ return {
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "v" })
 				map("<leader>td", function()
-					vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+					vim.diagnostic.open_float()
 				end, "[T]oggle [D]iagnostics")
 
 				-- Autocommands to highlight words under the cursor
