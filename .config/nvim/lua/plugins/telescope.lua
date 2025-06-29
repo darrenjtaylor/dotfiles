@@ -21,6 +21,13 @@ return {
 		vim.keymap.set("n", "<leader>sf", function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })
 		end, { desc = "[S]earch [F]uzzy" })
+		vim.keymap.set("n", "<leader>sc", function()
+			builtin.live_grep({
+				search_dirs = { vim.fn.stdpath("config") },
+				additional_args = { "--type", "lua" },
+				prompt_title = "Grep in Config > ",
+			})
+		end, { desc = "[S]earch [C]onfig" })
 		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch [B]uffers" })
 
 		-- Search help docs and keymaps.
