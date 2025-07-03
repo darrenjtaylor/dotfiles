@@ -92,9 +92,6 @@ return {
 			-- Python setup
 			pyright = {},
 
-			-- Vue3
-			-- volar = {},
-
 			-- Typescript setup
 			ts_ls = {
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
