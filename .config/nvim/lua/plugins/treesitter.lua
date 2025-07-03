@@ -4,11 +4,11 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
-        "nvim-treesitter/nvim-treesitter-context",
+		"nvim-treesitter/nvim-treesitter-context",
 	},
 	config = function()
-        local config = require("nvim-treesitter.configs")
-        config.setup({
+		local config = require("nvim-treesitter.configs")
+		config.setup({
 			auto_install = true,
 			ensure_installed = { "lua", "python", "javascript", "typescript", "vue", "html", "css", "markdown" },
 			highlight = { enable = true },

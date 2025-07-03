@@ -93,7 +93,7 @@ return {
 			pyright = {},
 
 			-- Vue3
-			volar = {},
+			-- volar = {},
 
 			-- Typescript setup
 			ts_ls = {
