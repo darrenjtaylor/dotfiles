@@ -5,6 +5,13 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		require("noice").setup({})
+		require("noice").setup({
+			routes = {
+				view = "cmdline",
+				filter = {
+					event = "msg_showmode",
+				},
+			},
+		})
 	end,
 }
