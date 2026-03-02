@@ -16,6 +16,17 @@ execute() {
     "$@"
 }
 
+# Determine OS
+os_type=$(uname)
+if [ "$os_type" = "Linux" ]; then
+    os_install_dir="linux"
+elif [ "$os_type" = "Darwin" ]; then
+    os_install_dir="macos"
+else
+    echo "ERROR: Unsupported OS [$os_type]"
+    exit 1
+fi
+
 # Grab the directory this script is running from
 currdir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
@@ -35,7 +46,7 @@ done
 
 # Grab all of our install scripts
 cd $currdir
-scripts=$(find ./install -maxdepth 1 -mindepth 1 -executable -type f)
+scripts=$(find ./install/$os_install_dir -maxdepth 1 -mindepth 1 -executable -type f)
 
 # Run our install scripts unless they don't match the provided filter
 for script in $scripts; do
