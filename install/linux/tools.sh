@@ -4,6 +4,7 @@
 sudo apt install -y \
     jq \
     ripgrep \
+    stow \
     tree
 
 # Tools and utilities installed via source
