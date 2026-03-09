@@ -44,7 +44,7 @@ sudo apt install -y "${packages[@]}"
 # Install fzf
 SRC_DIR=$HOME/source
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/source/fzf
-$HOME/source/fzf/install
+yes | $HOME/source/fzf/install
 
 # Install pyenv
 curl -fsSL https://pyenv.run | bash
