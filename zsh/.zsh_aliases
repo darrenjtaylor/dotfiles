@@ -1,0 +1,3 @@
+# Various aliases for convenience
+alias vim="nvim"
+alias vi="nvim"

@@ -118,31 +118,73 @@ source ${ZIM_HOME}/init.zsh
 ##############################################################################
 #
 # 1. Set environment variables
-# 2. Define custom  aliases
-# 3. Define custom functions
+# 2. Define custom  aliases and functions
+# 3. Setup tools and utilities
 #
 ##############################################################################
 
+
+########################
 # Environment variables
+########################
+
+
 export EDITOR="nvim"
 export PATH=$HOME/bin:/usr/local/bin:/bin:/usr/bin:$PATH
 
-# Various aliases for convenience
-alias vim="nvim"
-alias vi="nvim"
+# Disable the creation of __pycache__ directories when importing Python modules
+export PYTHONDONTWRITEBYTECODE=1
+
+# Define default Kube config for managing pi cluster
+export KUBECONFIG=~/.kube/config-rpi-cluster
+
+# Modify PATH so it includes user's private bin locations if they exist
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$PATH:$HOME/.local/bin"
+fi
+
+# Modify PATH for golang
+if [ -d "/usr/local/go/bin" ] ; then
+    PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
+fi
+
+# Modify PATH for tmuxifier
+if [ -d "$HOME/.tmuxifier/bin" ] ; then
+    PATH="$PATH:$HOME/.tmuxifier/bin"
+    eval "$(tmuxifier init -)"
+fi
 
 # Setup pyenv, this may need to go before zim init.
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Setup fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Setup various things
-# TODO: Organize things better.  Take a look at the zsh startup files
-if [ -f ~/.profile ]; then
-    source ~/.profile;
+###############################
+# Custom aliases and functions
+###############################
+
+
+if [ -f ~/.zsh_aliases ]; then
+    source ~/.zsh_aliases;
+fi
+
+if [ -f ~/.zsh_functions ]; then
+    source ~/.zsh_functions;
+fi
+
+
+#################################
+# Various tool and utility setup
+#################################
+
+# Setup fzf
+if [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
