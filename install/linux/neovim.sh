@@ -19,3 +19,5 @@ pushd $SRC_DIR
 make CMAKE_BUILD_TYPE=Release
 sudo make install
 popd
+
+stow -t $HOME nvim
