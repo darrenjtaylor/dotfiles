@@ -1,9 +1,14 @@
 return {
-	"simrat39/symbols-outline.nvim",
+	"hedyhli/outline.nvim",
 	config = function()
-		require("symbols-outline").setup({
-			autofold_depth = 0,
+		require("outline").setup({
+			symbol_folding = {
+				autofold_depth = 1,
+				auto_unfold = {
+					hovered = true,
+				},
+			},
 		})
-		vim.keymap.set({ "n", "v" }, "<leader>ts", "<cmd>SymbolsOutline<CR>", { desc = "[T]oggle [S]ymbol Outline" })
+		vim.keymap.set({ "n", "v" }, "<leader>ts", "<cmd>Outline<CR>", { desc = "[T]oggle [S]ymbol Outline" })
 	end,
 }
