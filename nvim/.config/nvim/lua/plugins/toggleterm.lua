@@ -7,6 +7,7 @@ return {
 			float_opts = {
 				border = "curved",
 			},
+			shell = "/bin/zsh",
 		})
 
 		local Terminal = require("toggleterm.terminal").Terminal
