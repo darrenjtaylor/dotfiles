@@ -16,6 +16,8 @@ return {
 				json = { "prettierd", "prettier", stop_after_first = true },
 				yaml = { "prettierd", "prettier", stop_after_first = true },
 				sql = { "sqlfmt" },
+				rust = { "rustfmt", lsp_format = "fallback" },
+				go = { "goimports", "gofmt" },
 			},
 			format_on_save = {
 				lsp_fallback = "fallback",

@@ -8,6 +8,9 @@ return {
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
 			python = { "flake8" },
+			go = { "golangcilint" },
+			-- Rust linting is handled by rust-analyzer with clippy
+			-- (see check.command in lua/plugins/lsp.lua).
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

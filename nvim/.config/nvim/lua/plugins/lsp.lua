@@ -106,6 +106,26 @@ return {
 					},
 				},
 			},
+			-- Rust setup (linting via clippy is enabled in settings below)
+			rust_analyzer = {
+				settings = {
+					["rust-analyzer"] = {
+						cargo = { allFeatures = true },
+						check = { command = "clippy" },
+					},
+				},
+			},
+
+			-- Go setup
+			gopls = {
+				settings = {
+					gopls = {
+						analyses = { unusedparams = true },
+						staticcheck = true,
+						gofumpt = true,
+					},
+				},
+			},
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})
@@ -116,6 +136,13 @@ return {
 			"prettier",
 			"stylua",
 			"sqlfmt",
+			-- Rust / Go formatters, linters, and debug adapters
+			"rustfmt",
+			"codelldb",
+			"delve",
+			"goimports",
+			"gofumpt",
+			"golangci-lint",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 		require("mason-lspconfig").setup({

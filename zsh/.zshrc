@@ -152,11 +152,19 @@ if [ -d "/usr/local/go/bin" ] ; then
     PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 fi
 
+if [ -d "/usr/local/go/bin" ] ; then
+    PATH="$PATH:$HOME/.cargo/bin"
+fi
+
 # Modify PATH for tmuxifier
 if [ -d "$HOME/.tmuxifier/bin" ] ; then
     PATH="$PATH:$HOME/.tmuxifier/bin"
     eval "$(tmuxifier init -)"
 fi
+
+# Setup opencode
+export PATH="$PATH:$HOME/.opencode/bin"
+. "$HOME/.cargo/env"
 
 # Setup pyenv, this may need to go before zim init.
 export PYENV_ROOT="$HOME/.pyenv"

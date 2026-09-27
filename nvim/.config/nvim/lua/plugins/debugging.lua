@@ -22,6 +22,29 @@ return {
 
         require("dap-go").setup()
 
+        -- Rust / C / C++ via codelldb (installed by mason as "codelldb").
+        local codelldb_path = vim.fn.stdpath("data") .. "/mason/bin/codelldb"
+        dap.adapters.codelldb = {
+            type = "server",
+            port = "${port}",
+            executable = {
+                command = codelldb_path,
+                args = { "--port", "${port}" },
+            },
+        }
+        dap.configurations.rust = {
+            {
+                name = "Launch file",
+                type = "codelldb",
+                request = "launch",
+                program = function()
+                    return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                end,
+                cwd = "${workspaceFolder}",
+                stopOnEntry = false,
+            },
+        }
+
         dap.listeners.before.attach.dapui_config = function()
             dapui.close()
         end
