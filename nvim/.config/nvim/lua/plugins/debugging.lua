@@ -22,8 +22,10 @@ return {
 
         require("dap-go").setup()
 
-        -- Rust / C / C++ via codelldb (installed by mason as "codelldb").
-        local codelldb_path = vim.fn.stdpath("data") .. "/mason/bin/codelldb"
+        -- Rust / C / C++ via codelldb (`:Mason` package "codelldb", or system install).
+        local mason_codelldb = vim.fn.stdpath("data") .. "/mason/bin/codelldb"
+        local codelldb_path = vim.fn.executable(mason_codelldb) == 1 and mason_codelldb
+            or vim.fn.exepath("codelldb")
         dap.adapters.codelldb = {
             type = "server",
             port = "${port}",

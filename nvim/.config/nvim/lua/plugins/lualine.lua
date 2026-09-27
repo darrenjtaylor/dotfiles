@@ -7,7 +7,8 @@ return {
 		local lualine = require("lualine")
 		lualine.setup({
 			options = {
-				theme = "kanagawa-paper",
+				-- Pinned to the dark variant shipped by kanagawa-paper.nvim.
+				theme = "kanagawa-paper-ink",
 			},
 			sections = {
 				lualine_a = { "mode" },
